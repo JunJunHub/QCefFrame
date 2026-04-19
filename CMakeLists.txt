@@ -115,6 +115,10 @@ elseif("${CMAKE_SYSTEM_NAME}" STREQUAL "Linux")
     # x86 32-bit architecture.
     add_compile_options(-m32)
     add_link_options(-m32)
+  elseif(PROJECT_ARCH STREQUAL "arm64")
+    # ARM64 (aarch64) architecture - cross-compilation
+    # No additional flags needed, toolchain file handles this
+    message(STATUS "Building for ARM64 (aarch64) architecture")
   endif()
 elseif("${CMAKE_SYSTEM_NAME}" STREQUAL "Windows")
   set(OS_WINDOWS 1)

@@ -1,0 +1,21 @@
+config BR2_PACKAGE_QCEFFRAME
+	bool "qceframe"
+	depends on BR2_PACKAGE_QT6BASE
+	depends on BR2_INSTALL_LIBSTDCPP
+	depends on BR2_TOOLCHAIN_GCC_AT_LEAST_7 # C++17
+	select BR2_PACKAGE_CURL
+	select BR2_PACKAGE_OPENSSL
+	help
+	  QCefFrame - Qt + CEF cross-platform framework with ARM64 support.
+	  Based on QCefView, provides Chromium browser embedding for Qt applications.
+
+	  Features:
+	  - QWidget browser view
+	  - JavaScript/C++ communication
+	  - OSR (Off-Screen Rendering) support
+	  - ARM64 cross-compilation support
+
+	  https://github.com/JunJunHub/QCefFrame
+
+comment "qceframe needs Qt6 and a toolchain w/ C++17"
+	depends on !BR2_PACKAGE_QT6BASE || !BR2_INSTALL_LIBSTDCPP || !BR2_TOOLCHAIN_GCC_AT_LEAST_7
